@@ -4,6 +4,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/gpio/meson-g12a-gpio.h>
 #include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/interrupt-controller/amlogic,meson-g12a-gpio-intc.h>
 
 / {
 	metadata {
@@ -12,11 +13,11 @@
 		category = "misc";
 		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOAO_3", "GPIOX_8", "GPIOX_9", "GPIOAO_2";
 		description = "Enable Waveshare 3.5inch RPi LCD (B) on SPI-B.
-Uses Pin 18 (GPIOX_8) for LCD_RS,
-Pin 7 (GPIOAO_3) for RST,
-Pin 24 (GPIOH_6) for LCD_CS,
-Pin 11 (GPIOAO_2) for TP_IRQ,
-Pin 26 (GPIOX_9) for TP_CS.
+Uses Pin 7/27 (GPIOAO_3) for RST (22)*,
+Pin 11/28 (GPIOAO_2) for TP_IRQ (11),
+Pin 12 (GPIOX_9) for TP_CS (26)*,
+Pin 18 (GPIOX_8) for LCD_RS (18),
+Pin 24 (GPIOH_6) for LCD_CS (24).
 ";
 	};
 };
@@ -33,10 +34,10 @@ Pin 26 (GPIOX_9) for TP_CS.
 		compatible = "waveshare,rpi-lcd-35-b", "ilitek,ili9486";
 		reg = <0>;
 		spi-max-frequency = <2000000>;
-		rotation = <0>;
+		rotation = <90>;
 		buswidth = <8>;
 		regwidth = <16>;
-		reset-gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_LOW>;
 		dc-gpios = <&gpio GPIOX_8 GPIO_ACTIVE_HIGH>;
 	};
 
@@ -44,8 +45,9 @@ Pin 26 (GPIOX_9) for TP_CS.
 		compatible = "ti,ads7846";
 		status = "okay";
 		reg = <1>;
-		spi-max-frequency = <2000000>;
+		spi-max-frequency = <50000>;
 		ti,x-plate-ohms = /bits/ 16 <60>;
+		ti,y-plate-ohms = /bits/ 16 <60>;
 		ti,pressure-max = /bits/ 16 <255>;
 		touchscreen-inverted-y;
 		touchscreen-swapped-x-y;

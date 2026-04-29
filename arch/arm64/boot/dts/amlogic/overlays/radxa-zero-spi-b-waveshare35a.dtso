@@ -8,7 +8,7 @@ Uses Pin 18 (GPIOX_8) for LCD_RS,
 Pin 7 (GPIOAO_3) for RST,
 Pin 24 (GPIOH_6) for LCD_CS,
 Pin 11 (GPIOAO_2) for TP_IRQ,
-Pin 26 (GPIOX_9) for TP_CS.";
+Pin 12 (GPIOX_9) for TP_CS.";
 	};
 };
 

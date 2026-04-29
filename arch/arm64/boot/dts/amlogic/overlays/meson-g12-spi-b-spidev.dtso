@@ -11,7 +11,9 @@
 		compatible = "radxa,zero", "radxa,zero2";
 		category = "misc";
 		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7";
-		description = "Enable SPI-B on GPIOH_4 - GPIOH_7.";
+		description = "Enable SPI-B on GPIOH_4 - GPIOH_7.
+On Radxa ZERO this is MOSI pin 19, MISO pin 21, SCLK pin 23, SS0 pin 24.
+";
 	};
 };
 
