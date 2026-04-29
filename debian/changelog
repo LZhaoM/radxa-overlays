@@ -1,3 +1,22 @@
+radxa-overlays (0.2.21) noble; urgency=medium
+
+  [ liangyuanjin ]
+  * feat: add cam0-radxa-camera-13m-214 overlays for rock-5t
+  * feat: add cam1-radxa-camera-13m-214 overlays for rock-5t
+
+  [ Nascs Fang ]
+  * feat: add uart7 and uart14 for q6a
+  * fix: add missing gpio exclusives for qcs6490 q6a overlays
+
+  [ Jiali Chen ]
+  * feat: rock-4c-plus: add support for Waveshare 2-CH CAN FD HAT
+
+  [ Xinming Chen ]
+  * fix: radxa-cm3i: ov5647 uses pwdn-gpios instead of regulator
+  * fix: cm3i: drive gpio3_b2 high to ensure compatibility
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 29 Apr 2026 09:01:45 +0000
+
 radxa-overlays (0.2.20) noble; urgency=medium
 
   [ ZHANG Yuntian ]
